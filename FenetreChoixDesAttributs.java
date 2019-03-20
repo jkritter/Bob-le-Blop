@@ -9,6 +9,7 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
     JTextField inteligenceField;
     JPanel attributsPanel;
     JPanel vitessePanel;
+    JLabel vitesseLabel;
     JButton valideButton;
     int valVitesse;
     int valFecondite;
@@ -25,8 +26,6 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        
-
         // Mon panneau de rentrée des informations
         JPanel attributsPanel = new JPanel();
         attributsPanel.setLayout(null);
@@ -48,17 +47,17 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
         vitessePanel.setBackground(Color.YELLOW);
         
         //Texte vitesse
-        JTextPane vitessePane = new JTextPane();
-        vitessePane.setLayout(null);
-        vitessePane.setText("Vitesse");
-        vitessePane.setBounds(25,50,100,50);
-        vitessePane.setBackground(Color.white);
-        vitessePanel.add(vitessePane);
+        JLabel vitesseLabel = new JLabel();
+        vitesseLabel.setLayout(null);
+        vitesseLabel.setText("Vitesse");
+        vitesseLabel.setBounds(25,10,100,50);
+        vitesseLabel.setBackground(Color.white);
+        vitessePanel.add(vitesseLabel);
 
         //Champ de rentrée vitesse
         JTextField vitesseField = new JTextField();
         vitesseField.setLayout(null);
-        vitesseField.setBounds(25,50,50,50);
+        vitesseField.setBounds(25,60,50,50);
         vitesseField.setBackground(Color.white);
         vitessePanel.add(vitesseField);
 
@@ -68,9 +67,9 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
         this.setVisible(true);
     }
     
-    public void ActionPerformed(Action e){
-        // valVitesse=Integer.parseInt(vitesseField.getText());
-        // System.out.println(valVitesse);
+    public void actionPerformed (ActionEvent e){
+        valVitesse=Integer.parseInt(vitesseField.getText());
+        System.out.println(valVitesse);
         // valForce=Integer.parseInt(forceField.getText());
         // valInteligence=Integer.parseInt(inteligenceField.getText());
         // valFecondite=Integer.parseInt(feconditeField.getText());
