@@ -8,15 +8,19 @@ public class Bob {
 		int population ; 
 		String nomPop ; 
 		
-						//mode aléatoire ? 
+						//mode alï¿½atoire ? 
 	public Bob(String nomPop, int force, int vitesse, int intel, int fertilite) {
 		this.nomPop = nomPop ; 
-		this.population = 10 ; // à changer si jamais
+		this.population = 10 ; // ï¿½ changer si jamais
 		this.force = force ;
 		this.vitesse = vitesse ; 
 		this.intel = intel ; 
 		this.fertilite = fertilite ; 
-		// vérifier que le total fasse moins que 500 AVANT d'envoyer au constructeur	
+		// vï¿½rifier que le total fasse moins que 500 AVANT d'envoyer au constructeur	
+	}
+
+	public String toString() {
+		return("Bob a : "+force+"de force, "+vitesse+"de vitesse, "+intel+"d'intel, "+fertilite+"de fertilitÃ©");
 	}
 
 }

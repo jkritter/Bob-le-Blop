@@ -57,14 +57,18 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
         forceLabel = new JLabel();
         forceLabel.setLayout(null);
         forceLabel.setText("Force");
-        forceLabel.setBounds(25,25,100,50);
+        Font fL = new Font("Calibri", Font.PLAIN, 30); 
+        forceLabel.setFont(fL); ; //change la police
+        forceLabel.setBounds(25,50,100,50);
         forcePanel.add(forceLabel);
 
         //Champ de rentrée Force
         forceField = new JTextField();
         forceField.setLayout(null);
-        forceField.setBounds(150,25,25,25);
+        forceField.setBounds(150,50,50,50);
         forceField.setBackground(Color.white);
+        Font fF = new Font("Calibri", Font.PLAIN, 30); 
+        forceField.setFont(fF); ; //change la police
         forcePanel.add(forceField);
         
         
@@ -79,14 +83,18 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
         vitesseLabel = new JLabel();
         vitesseLabel.setLayout(null);
         vitesseLabel.setText("Vitesse");
-        vitesseLabel.setBounds(25,25,100,50);
+        Font vL = new Font("Calibri", Font.PLAIN, 30); 
+        vitesseLabel.setFont(vL); ; //change la police
+        vitesseLabel.setBounds(25,50,100,50);
         vitessePanel.add(vitesseLabel);
 
         //Champ de rentrée vitesse
         vitesseField = new JTextField();
         vitesseField.setLayout(null);
-        vitesseField.setBounds(150,25,25,25);
+        vitesseField.setBounds(150,50,50,50);
         vitesseField.setBackground(Color.white);
+        Font vF = new Font("Calibri", Font.PLAIN, 30); 
+        vitesseField.setFont(vF); ; //change la police
         vitessePanel.add(vitesseField);
         
         
@@ -101,14 +109,18 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
         inteligenceLabel = new JLabel();
         inteligenceLabel.setLayout(null);
         inteligenceLabel.setText("Inteligence");
-        inteligenceLabel.setBounds(25,25,100,50);
+        Font iL = new Font("Calibri", Font.PLAIN, 30); 
+        inteligenceLabel.setFont(iL); ; //change la police
+        inteligenceLabel.setBounds(25,50,150,50);
         inteligencePanel.add(inteligenceLabel);
 
         //Champ de rentrée inteligence
         inteligenceField = new JTextField();
         inteligenceField.setLayout(null);
-        inteligenceField.setBounds(150,25,25,25);
+        inteligenceField.setBounds(200,50,50,50);
         inteligenceField.setBackground(Color.white);
+        Font iF = new Font("Calibri", Font.PLAIN, 30); 
+        inteligenceField.setFont(iF); ; //change la police
         inteligencePanel.add(inteligenceField);
         
         
@@ -123,14 +135,18 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
         fertiliteLabel = new JLabel();
         fertiliteLabel.setLayout(null);
         fertiliteLabel.setText("Fertilite");
-        fertiliteLabel.setBounds(25,25,100,50);
+        Font feL = new Font("Calibri", Font.PLAIN, 30); 
+        fertiliteLabel.setFont(feL); ; //change la police
+        fertiliteLabel.setBounds(25,50,100,50);
         fertilitePanel.add(fertiliteLabel);
 
         //Champ de rentrée Fertilite
         fertiliteField = new JTextField();
         fertiliteField.setLayout(null);
-        fertiliteField.setBounds(150,25,25,25);
+        fertiliteField.setBounds(150,50,50,50);
         fertiliteField.setBackground(Color.white);
+        Font feF = new Font("Calibri", Font.PLAIN, 30); 
+        fertiliteField.setFont(feF); ; //change la police
         fertilitePanel.add(fertiliteField);
 
 		attributsPanel.add(forcePanel);
@@ -151,5 +167,6 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
         String nomPop=nomPopField.getText();
         
         Bob monBob = new Bob(nomPop, valForce, valVitesse, valInteligence, valFertilite);
+        System.out.println(monBob);
     }
 }
