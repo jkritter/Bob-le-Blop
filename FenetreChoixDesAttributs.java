@@ -193,15 +193,15 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
     }
     
     public void actionPerformed (ActionEvent e){
+        // On récupère les valeurs dans les textFields
         valVitesse=Integer.parseInt(vitesseField.getText());
-        // System.out.println(valVitesse);
         valForce=Integer.parseInt(forceField.getText());
         valInteligence=Integer.parseInt(inteligenceField.getText());
         valFertilite=Integer.parseInt(fertiliteField.getText());
         nomPop=nomPopField.getText();
         
-        monBob = new Bob(nomPop, valForce, valVitesse, valInteligence, valFertilite);
+        monBob = new Bob(nomPop, valForce, valVitesse, valInteligence, valFertilite); // Créer notre cher Blop
 
-       FenetreJeu maFenetreJeu = new FenetreJeu(monBob);
+       FenetreJeu maFenetreJeu = new FenetreJeu(monBob); // Lance le jeu
     }
 }
