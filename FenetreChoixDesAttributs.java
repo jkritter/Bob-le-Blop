@@ -27,7 +27,7 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
     String nomPop;
 
     Bob monBob;
-    fenetre2 maFenetre2;
+    FenetreJeu maFenetreJeu;
 
     public FenetreChoixDesAttributs (){
         //Création de la fenetre
@@ -202,6 +202,6 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
         
         monBob = new Bob(nomPop, valForce, valVitesse, valInteligence, valFertilite);
 
-       fenetre2 maFenetre2 = new fenetre2(monBob);
+       FenetreJeu maFenetreJeu = new FenetreJeu(monBob);
     }
 }
