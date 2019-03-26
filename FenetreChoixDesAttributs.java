@@ -6,24 +6,24 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
     JTextField vitesseField;
     JTextField forceField;
     JTextField fertiliteField;
-    JTextField inteligenceField;
+    JTextField intelligenceField;
     JTextField nomPopField;
     JPanel attributsPanel;
     JPanel forcePanel;
     JPanel vitessePanel;
-    JPanel inteligencePanel;
+    JPanel intelligencePanel;
     JPanel fertilitePanel;
     JPanel nomPopPanel;
     JLabel forceLabel;
     JLabel vitesseLabel;
-    JLabel inteligenceLabel;
+    JLabel intelligenceLabel;
     JLabel fertiliteLabel;
     JLabel nomPopLabel;
     JButton valideButton;
     int valVitesse;
     int valFertilite;
     int valForce;
-    int valInteligence;
+    int valIntelligence;
     String nomPop;
 
     Bob monBob;
@@ -105,30 +105,30 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
         
         
         
-        // Panneau Inteligence 
-        inteligencePanel = new JPanel();
-        inteligencePanel.setLayout(null);
-        inteligencePanel.setBounds(0,300,300,150);
-        inteligencePanel.setBackground(new Color(196, 235, 239));
+        // Panneau intelligence 
+        intelligencePanel = new JPanel();
+        intelligencePanel.setLayout(null);
+        intelligencePanel.setBounds(0,300,300,150);
+        intelligencePanel.setBackground(new Color(196, 235, 239));
         
         
-        //Texte Inteligence
-        inteligenceLabel = new JLabel();
-        inteligenceLabel.setLayout(null);
-        inteligenceLabel.setText("Inteligence");
+        //Texte intelligence
+        intelligenceLabel = new JLabel();
+        intelligenceLabel.setLayout(null);
+        intelligenceLabel.setText("Intelligence");
         Font iL = new Font("Calibri", Font.PLAIN, 30); 
-        inteligenceLabel.setFont(iL); ; //change la police
-        inteligenceLabel.setBounds(25,50,150,50);
-        inteligencePanel.add(inteligenceLabel);
+        intelligenceLabel.setFont(iL); ; //change la police
+        intelligenceLabel.setBounds(25,50,150,50);
+        intelligencePanel.add(intelligenceLabel);
 
-        //Champ de rentrée inteligence
-        inteligenceField = new JTextField();
-        inteligenceField.setLayout(null);
-        inteligenceField.setBounds(200,50,50,50);
-        inteligenceField.setBackground(Color.white);
+        //Champ de rentrée intelligence
+        intelligenceField = new JTextField();
+        intelligenceField.setLayout(null);
+        intelligenceField.setBounds(200,50,50,50);
+        intelligenceField.setBackground(Color.white);
         Font iF = new Font("Calibri", Font.PLAIN, 30); 
-        inteligenceField.setFont(iF); ; //change la police
-        inteligencePanel.add(inteligenceField);
+        intelligenceField.setFont(iF); ; //change la police
+        intelligencePanel.add(intelligenceField);
         
         
         
@@ -184,7 +184,7 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
 
 		attributsPanel.add(forcePanel);
         attributsPanel.add(vitessePanel);
-        attributsPanel.add(inteligencePanel);
+        attributsPanel.add(intelligencePanel);
         attributsPanel.add(fertilitePanel);
         this.add(nomPopPanel);
 		
@@ -196,11 +196,11 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
         // On récupère les valeurs dans les textFields
         valVitesse=Integer.parseInt(vitesseField.getText());
         valForce=Integer.parseInt(forceField.getText());
-        valInteligence=Integer.parseInt(inteligenceField.getText());
+        valIntelligence=Integer.parseInt(intelligenceField.getText());
         valFertilite=Integer.parseInt(fertiliteField.getText());
         nomPop=nomPopField.getText();
         
-        monBob = new Bob(nomPop, valForce, valVitesse, valInteligence, valFertilite); // Créer notre cher Blop
+        monBob = new Bob(nomPop, valForce, valVitesse, valIntelligence, valFertilite); // Créer notre cher Blop
 
        FenetreJeu maFenetreJeu = new FenetreJeu(monBob); // Lance le jeu
     }
