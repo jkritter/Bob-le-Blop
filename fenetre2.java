@@ -10,7 +10,7 @@ public class fenetre2 extends JFrame{ //implements actionlistener
 		setLayout(null);
 		this.monBob= monBob ; 
 		
-		//Panel 1, à gauche : image de bob, 4 spé, population
+		//Panel 1, ï¿½ gauche : image de bob, 4 spï¿½, population
 		JPanel partieG = new JPanel() ;
 		partieG.setLayout(null);  
 		partieG.setBackground(Color.GRAY);
@@ -24,7 +24,7 @@ public class fenetre2 extends JFrame{ //implements actionlistener
 		
 		
 		
-		//force vitesse intelligence fertilité pop
+		//force vitesse intelligence fertilitï¿½ pop
 		JLabel fo = new JLabel("Force : " +monBob.force, SwingConstants.CENTER) ; //permet de centrer
 		fo.setBounds(90, 500, 260, 80);
 		fo.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3)); //bordure
@@ -37,7 +37,7 @@ public class fenetre2 extends JFrame{ //implements actionlistener
 		intell.setBounds(90, 700, 260, 80);
 		intell.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 		
-		JLabel fertilite = new JLabel("Fertilité : " +monBob.fertilite, SwingConstants.CENTER) ;
+		JLabel fertilite = new JLabel("Fertilitï¿½ : " +monBob.fertilite, SwingConstants.CENTER) ;
 		fertilite.setBounds(90, 800, 260, 80);
 		fertilite.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 		
@@ -49,7 +49,7 @@ public class fenetre2 extends JFrame{ //implements actionlistener
 		fo.setBackground(Color.WHITE) ;vi.setBackground(Color.WHITE) ;intell.setBackground(Color.WHITE) ;fertilite.setBackground(Color.WHITE) ;
 		partieG.add(fo) ; partieG.add(vi) ; partieG.add(intell) ; partieG.add(fertilite) ;  
 		
-		///Panel 2 : image du ciel : là où il y aura les évènements
+		///Panel 2 : image du ciel : lï¿½ oï¿½ il y aura les ï¿½vï¿½nements
 		JPanel partieCiel = new JPanel() ;
 		partieCiel.setLayout(null);
 		partieCiel.setBackground(Color.CYAN);
@@ -73,15 +73,15 @@ public class fenetre2 extends JFrame{ //implements actionlistener
 		imageCiel.add(pop) ; 
 		//partieCiel.add(pop) ; 
 		
-		//Panel 3 : là où il y a représentation graphique de la populations : va bcp bouger
+		//Panel 3 : lï¿½ oï¿½ il y a reprï¿½sentation graphique de la populations : va bcp bouger
 		JPanel partieBas = new JPanel() ; 
 		partieBas.setLayout(null);
 		partieBas.setBackground(Color.GREEN);
 		partieBas.setBounds(450, 500, 950, 500);
 		
-		//TODO : faire une matrice avec des carrés représentant chacun un Bob
-		//1 case colorée = 1 bob
-		//à actualiser à chaque tour
+		//TODO : faire une matrice avec des carrï¿½s reprï¿½sentant chacun un Bob
+		//1 case colorï¿½e = 1 bob
+		//ï¿½ actualiser ï¿½ chaque tour
 		//renvoie d'un nombre de la part de Jeu ? 
 		
 		

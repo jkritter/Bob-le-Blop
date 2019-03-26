@@ -19,8 +19,8 @@ public class Bob {
 		// v�rifier que le total fasse moins que 500 AVANT d'envoyer au constructeur	
 	}
 
-	public String toString() {
-		return("Bob a : "+force+"de force, "+vitesse+"de vitesse, "+intel+"d'intel, "+fertilite+"de fertilité");
+	public String toString () {
+		return(nomPop+" a : "+force+" de force, "+vitesse+" de vitesse, "+intel+" d'intel, "+fertilite+" de fertilité");
 	}
 
 }

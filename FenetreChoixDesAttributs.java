@@ -13,15 +13,21 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
     JPanel vitessePanel;
     JPanel inteligencePanel;
     JPanel fertilitePanel;
+    JPanel nomPopPanel;
     JLabel forceLabel;
     JLabel vitesseLabel;
     JLabel inteligenceLabel;
     JLabel fertiliteLabel;
+    JLabel nomPopLabel;
     JButton valideButton;
     int valVitesse;
     int valFertilite;
     int valForce;
     int valInteligence;
+    String nomPop;
+
+    Bob monBob;
+    fenetre2 maFenetre2;
 
     public FenetreChoixDesAttributs (){
         //Création de la fenetre
@@ -40,11 +46,11 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
         attributsPanel.setBackground(Color.LIGHT_GRAY);
         
         // Le bouton de validation
-        valideButton = new JButton("Valider mon choix !");
+        valideButton = new JButton("VALIDER MON CHOIX !");
         valideButton.setLayout(null);
         valideButton.addActionListener(this);
-        valideButton.setBounds(25,725,250,40);
-        valideButton.setBackground(Color.CYAN);
+        valideButton.setBounds(10,700,280,60);
+        valideButton.setBackground(new Color(246, 184, 114));
         attributsPanel.add(valideButton);
         
         // Panneau Force 
@@ -77,7 +83,7 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
         vitessePanel = new JPanel();
         vitessePanel.setLayout(null);
         vitessePanel.setBounds(0,150,300,150);
-        vitessePanel.setBackground(new Color(196, 235, 239));
+        vitessePanel.setBackground(new Color(127, 219, 141));
         
         //Texte vitesse
         vitesseLabel = new JLabel();
@@ -103,7 +109,8 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
         inteligencePanel = new JPanel();
         inteligencePanel.setLayout(null);
         inteligencePanel.setBounds(0,300,300,150);
-        inteligencePanel.setBackground(new Color(127, 219, 141));
+        inteligencePanel.setBackground(new Color(196, 235, 239));
+        
         
         //Texte Inteligence
         inteligenceLabel = new JLabel();
@@ -149,10 +156,37 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
         fertiliteField.setFont(feF); ; //change la police
         fertilitePanel.add(fertiliteField);
 
+        // Panneau nomPop
+        nomPopPanel = new JPanel();
+        nomPopPanel.setLayout(null);
+        nomPopPanel.setBounds(500,0,300,80);
+        nomPopPanel.setBackground(new Color(235, 92, 231));
+        
+        //Texte nomPop
+        nomPopLabel = new JLabel();
+        nomPopLabel.setLayout(null);
+        nomPopLabel.setText("Nom Blop");
+        Font nPL = new Font("Calibri", Font.PLAIN, 30); 
+        nomPopLabel.setFont(nPL); ; //change la police
+        nomPopLabel.setBounds(20,25,150,40);
+        nomPopPanel.add(nomPopLabel);
+
+        //Champ de rentrée nomPop
+        nomPopField = new JTextField();
+        nomPopField.setLayout(null);
+        nomPopField.setBounds(160,25,120,40);
+        nomPopField.setBackground(Color.white);
+        Font nPF = new Font("Calibri", Font.PLAIN, 30); 
+        nomPopField.setFont(nPF); ; //change la police
+        nomPopPanel.add(nomPopField);
+
+        
+
 		attributsPanel.add(forcePanel);
         attributsPanel.add(vitessePanel);
         attributsPanel.add(inteligencePanel);
         attributsPanel.add(fertilitePanel);
+        this.add(nomPopPanel);
 		
         this.add(attributsPanel);
         this.setVisible(true);
@@ -160,13 +194,14 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
     
     public void actionPerformed (ActionEvent e){
         valVitesse=Integer.parseInt(vitesseField.getText());
-        System.out.println(valVitesse);
+        // System.out.println(valVitesse);
         valForce=Integer.parseInt(forceField.getText());
         valInteligence=Integer.parseInt(inteligenceField.getText());
         valFertilite=Integer.parseInt(fertiliteField.getText());
-        String nomPop=nomPopField.getText();
+        nomPop=nomPopField.getText();
         
-        Bob monBob = new Bob(nomPop, valForce, valVitesse, valInteligence, valFertilite);
-        System.out.println(monBob);
+        monBob = new Bob(nomPop, valForce, valVitesse, valInteligence, valFertilite);
+
+       fenetre2 maFenetre2 = new fenetre2(monBob);
     }
 }
