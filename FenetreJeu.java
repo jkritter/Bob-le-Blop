@@ -38,7 +38,7 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 		intell.setBounds(90, 700, 260, 80);
 		intell.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 		
-		JLabel fertilite = new JLabel("Fertilit� : " +monBob.fertilite, SwingConstants.CENTER) ;
+		JLabel fertilite = new JLabel("Fertilite : " +monBob.fertilite, SwingConstants.CENTER) ;
 		fertilite.setBounds(90, 800, 260, 80);
 		fertilite.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 		
@@ -50,7 +50,7 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 		fo.setBackground(Color.WHITE) ;vi.setBackground(Color.WHITE) ;intell.setBackground(Color.WHITE) ;fertilite.setBackground(Color.WHITE) ;
 		partieG.add(fo) ; partieG.add(vi) ; partieG.add(intell) ; partieG.add(fertilite) ;  
 		
-		///Panel 2 : image du ciel : l� o� il y aura les �v�nements
+		///Panel 2 : image du ciel : la ou il y aura les evenements
 		JPanel partieCiel = new JPanel() ;
 		partieCiel.setLayout(null);
 		partieCiel.setBackground(Color.CYAN);
@@ -74,15 +74,14 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 		imageCiel.add(pop) ; 
 		//partieCiel.add(pop) ; 
 		
-		//Panel 3 : l� o� il y a repr�sentation graphique de la populations : va bcp bouger
-		JPanel partieBas = new JPanel() ; 
+		//Panel 3 : la ou ilya une reprentation graphique de la populations : va bcp bouger
+		fenetreMatrice partieBas = new fenetreMatrice(monBob) ; 
 		partieBas.setLayout(null);
-		partieBas.setBackground(Color.GREEN);
 		partieBas.setBounds(450, 500, 950, 500);
 		
-		//TODO : faire une matrice avec des carr�s repr�sentant chacun un Bob
-		//1 case color�e = 1 bob
-		//� actualiser � chaque tour
+		//TODO : faire une matrice avec des carres representant chacun un Bob
+		//1 case coloriee = 1 bob
+		//a actualiser a chaque tour
 		//renvoie d'un nombre de la part de Jeu ? 
 		
 		
@@ -91,6 +90,7 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
+	
 
 	// TODO public void actionPerformed(ActionEvent e) {	
 	// }

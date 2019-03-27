@@ -11,7 +11,7 @@ public class Bob {
 						//mode al�atoire ? 
 	public Bob(String nomPop, int force, int vitesse, int intel, int fertilite) {
 		this.nomPop = nomPop ; 
-		this.population = 10 ; // � changer si jamais
+		this.population = 70 ; // � changer si jamais
 		this.force = force ;
 		this.vitesse = vitesse ; 
 		this.intel = intel ; 
