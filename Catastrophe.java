@@ -36,10 +36,10 @@ public class Catastrophe {
 		}
         
         do {
-            victimes += (2*Math.random()-1)*2/100; //ajoute une valeur aléatoire entre -2 et 2
+            victimes += (2*Math.random()-1)*2/100 + (2*Math.random()-1)*2/100; //ajoute une valeur aléatoire
         } while (victimes < 0 || victimes > 100);
         
-		return victimes; // retourne le pourcentage de victimes de la catastrophe
+		return (int) victimes*monBob.population; // retourne le pourcentage de victimes de la catastrophe
 	}
 	
 	private void secheresse() {
