@@ -6,9 +6,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class fenetreErreur extends JFrame{
+public class FenetreErreur extends JFrame{
 	String message ; 
-	public fenetreErreur(String m) {
+	public FenetreErreur(String m) {
 		setName("Message d'erreur");
 		message = m ; 
 		setSize(200, 100) ; 

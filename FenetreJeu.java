@@ -75,7 +75,7 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 		//partieCiel.add(pop) ; 
 		
 		//Panel 3 : la ou ilya une reprentation graphique de la populations : va bcp bouger
-		fenetreMatrice partieBas = new fenetreMatrice(monBob) ; 
+		FenetreMatrice partieBas = new FenetreMatrice(monBob) ; 
 		partieBas.setLayout(null);
 		partieBas.setBounds(450, 500, 950, 500);
 		

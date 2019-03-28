@@ -3,9 +3,9 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-public class fenetreMatrice extends JPanel {
+public class FenetreMatrice extends JPanel {
 		Bob monBob ; 
-	public fenetreMatrice(Bob monBob) {
+	public FenetreMatrice(Bob monBob) {
 		this.monBob = monBob; // TODO Auto-generated constructor stub
 	}
 
