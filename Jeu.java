@@ -12,17 +12,16 @@ public class Jeu implements ActionListener{
 	public Jeu(Bob monBob) {
 		
 		this.monBob = monBob;
-		this.maFenetreJeu = new FenetreJeu(monBob); // Lance la fenetre du jeu
 		System.out.println("2");
 		//~ this.monChrono = new Timer(100,this);
 		//~ temps = 0;
 		//~ monChrono.start();
 		
-		//jouer();
+		jouer();
 	}
 	
 	public void jouer() {
-		
+		this.maFenetreJeu = new FenetreJeu(monBob); // Lance la fenetre du jeu
 		//System.out.println("a");
 		boolean enJeu = true;
 		
