@@ -8,19 +8,20 @@ import javax.swing.SwingConstants;
 
 public class FenetreErreur extends JFrame{
 	String message ; 
+
 	public FenetreErreur(String m) {
-		setName("Message d'erreur");
+		this.setTitle("Message d'erreur");
 		message = m ; 
-		setSize(200, 100) ; 
-		setLayout(null);
+		this.setBounds(125,350,550, 100) ; 
+		this.setLayout(null);
 		JLabel erreur = new JLabel(message) ; //permet de centrer
-		erreur.setBounds(0, 0, 200, 100);
+		erreur.setBounds(0, 0, 550, 100);
 		erreur.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3)); //bordure
 		erreur.setLayout(null);
-		add(erreur) ; 
+		this.add(erreur) ; 
 		
 		this.setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 }

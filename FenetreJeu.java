@@ -7,6 +7,7 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 	
 	public FenetreJeu(Bob monBob) {
 		super("Bob le Blob");
+		// System.out.println("TEST");
 		setSize(1400, 1000) ; 
 		setLayout(null);
 		this.monBob= monBob ; 

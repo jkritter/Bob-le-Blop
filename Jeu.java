@@ -3,35 +3,37 @@ import java.awt.event.*;
 
 public class Jeu implements ActionListener{
 	
-	private FenetreJeu maFenetreJeu;
+	FenetreJeu maFenetreJeu;
 	public Bob monBob;
 	private int temps;
 	private Timer monChrono;
-	private int eve;
+	private int eve=0;
 	
-	public Jeu(Bob monBob) {
+	public Jeu (Bob monBob) {
 		
 		this.monBob = monBob;
-		System.out.println("2");
-		//~ this.monChrono = new Timer(100,this);
-		//~ temps = 0;
-		//~ monChrono.start();
+		this.monChrono = new Timer(100,this);
+		temps = 0;
+		monChrono.start();
 		
 		jouer();
 	}
 	
 	public void jouer() {
-		this.maFenetreJeu = new FenetreJeu(monBob); // Lance la fenetre du jeu
 		//System.out.println("a");
 		boolean enJeu = true;
 		
 		while (enJeu) {
-			System.out.println("heho");
+			//System.out.println("heho");
 			if (eve == 1) {
 				System.out.println("Reproduction");
+				maFenetreJeu = new FenetreJeu(monBob); // Lance la fenetre du jeu
+
 				eve = 0;
 			} else if (eve == 2) {
 				System.out.println("Catastrophe");
+				maFenetreJeu = new FenetreJeu(monBob); // Lance la fenetre du jeu
+
 				eve = 0;
 			}
 		}

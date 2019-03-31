@@ -205,10 +205,10 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
         if(somme<=300 && valVitesse <101 && valForce <101 && valIntelligence <101 && valFertilite<101 ) {
         monBob = new Bob(nomPop, valForce, valVitesse, valIntelligence, valFertilite); // Créer notre cher Blop
 
-       //FenetreJeu maFenetreJeu = new FenetreJeu(monBob); // Lance le jeu
+        //FenetreJeu maFenetreJeu = new FenetreJeu(monBob); // Lance le jeu
         Jeu monJeu = new Jeu(monBob);
         }else {
-    	   FenetreErreur E1 = new FenetreErreur("Attention! Il faut que les valeurs ne d�passent pas 100 et que leur somme ne depasse pas 300") ; 
+    	   FenetreErreur E1 = new FenetreErreur("Attention! Il faut que les valeurs ne depassent pas 100 et que leur somme ne depasse pas 300") ; 
        }
  ;    }
 }
