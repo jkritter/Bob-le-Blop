@@ -20,6 +20,7 @@ public class Jeu implements ActionListener{
 	}
 	
 	public void jouer() {
+		maFenetreJeu = new FenetreJeu(monBob); // Lance la fenetre du jeu
 		//System.out.println("a");
 		boolean enJeu = true;
 		
@@ -27,15 +28,12 @@ public class Jeu implements ActionListener{
 			//System.out.println("heho");
 			if (eve == 1) {
 				System.out.println("Reproduction");
-				maFenetreJeu = new FenetreJeu(monBob); // Lance la fenetre du jeu
-
 				eve = 0;
 			} else if (eve == 2) {
 				System.out.println("Catastrophe");
-				maFenetreJeu = new FenetreJeu(monBob); // Lance la fenetre du jeu
-
 				eve = 0;
 			}
+			maFenetreJeu.setVisible(true);
 		}
 	}
 	

@@ -50,6 +50,7 @@ public class Catastrophe {
 		double a = (100-force)/400;
 		double b = (100-intel)/700;
 		victimes = a*b +a +b;
+		
 	}
 	
 	private void predateur() {
