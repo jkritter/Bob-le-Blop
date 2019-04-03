@@ -10,6 +10,7 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 		// System.out.println("TEST");
 		setSize(1400, 1000) ; 
 		setLayout(null);
+		this.setResizable(false);
 		this.monBob= monBob ; 
 		
 		//Panel 1, � gauche : image de bob, 4 sp�, population
