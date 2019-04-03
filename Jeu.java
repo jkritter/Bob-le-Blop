@@ -70,6 +70,11 @@ public class Jeu implements ActionListener{
 		}
 		System.out.println(monBob.population);
 		victimes = 0;
+		
+		if (temps > 120000) {
+			monChrono.stop();
+			System.out.println("C'est fini");
+		}
 	}
 }
 
