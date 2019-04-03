@@ -11,7 +11,7 @@ public class Catastrophe {
 		
 	}
 	
-	public double evenement() {
+	public int evenement() {
 		
 		id = (int) (Math.random()*5); // ID aléatoire de la catastrophe
 		switch (id) {
@@ -39,7 +39,7 @@ public class Catastrophe {
             victimes += (2*Math.random()-1)*2/100 + (2*Math.random()-1)*2/100; //ajoute une valeur aléatoire
         } while (victimes < 0 || victimes > 100);
         
-		return (int) victimes*monBob.population; // retourne le pourcentage de victimes de la catastrophe
+		return (int) (victimes*monBob.population); // retourne le pourcentage de victimes de la catastrophe
 	}
 	
 	private void secheresse() {
