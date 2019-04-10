@@ -36,6 +36,7 @@ public class Jeu implements ActionListener{
 			System.out.println("Reproduction");
 			monBob.population += (int) (monBob.population * (5 + (2*Math.log(1+monBob.fertilite*monBob.fertilite) + (2*Math.random()-1)*3))/100);
 			maFenetreJeu.repaint();
+			maFenetreJeu.pop.setText("Population : " +monBob.population);
             
 		} else if (aleat < 0.30 && temps >= temps0 + 3*delta) { //Catastrophe
             
@@ -73,6 +74,7 @@ public class Jeu implements ActionListener{
 			}
             
 		maFenetreJeu.repaint();
+		maFenetreJeu.pop.setText("Population : " +monBob.population);
 		}
 		System.out.println(monBob.population);
 		victimes = 0;
