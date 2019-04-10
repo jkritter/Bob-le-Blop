@@ -2,7 +2,7 @@
 public class Catastrophe {
 	
 	private Bob monBob;
-	private int id;
+	public int id;
 	private double victimes; //pourcentage de victimes
 	
 	public Catastrophe(Bob monBob) {
@@ -39,7 +39,7 @@ public class Catastrophe {
             victimes += (2*Math.random()-1)*2/100 + (2*Math.random()-1)*2/100; //ajoute une valeur aléatoire
         } while (victimes < 0 || victimes > 100);
         
-		return (int) (victimes*monBob.population); // retourne le pourcentage de victimes de la catastrophe
+		return (int) (victimes*monBob.population) + 1; // retourne le pourcentage de victimes de la catastrophe
 	}
 	
 	private void secheresse() {
