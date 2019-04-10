@@ -4,7 +4,10 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 	//TODO mettre les composants du actionlistener en attributs
 	//ne pas les mettre dans le constructeur
 		Bob monBob ; 
-	
+		JPanel partieG ;	JPanel partieCiel ;
+		JLabel fo ; JLabel vi ; JLabel intell ; JLabel fertilite ;  JLabel imageCiel ; JLabel pop ; 
+		FenetreMatrice partieBas ; 
+		
 	public FenetreJeu(Bob monBob) {
 		super("Bob le Blob");
 		// System.out.println("TEST");
@@ -14,7 +17,7 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 		this.monBob= monBob ; 
 		
 		//Panel 1, � gauche : image de bob, 4 sp�, population
-		JPanel partieG = new JPanel() ;
+		partieG = new JPanel() ;
 		partieG.setLayout(null);  
 		partieG.setBackground(Color.GRAY);
 		partieG.setBounds(0, 0, 450, 1000);
@@ -28,22 +31,21 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 		
 		
 		//force vitesse intelligence fertilit� pop
-		JLabel fo = new JLabel("Force : " +monBob.force, SwingConstants.CENTER) ; //permet de centrer
+		fo = new JLabel("Force : " +monBob.force, SwingConstants.CENTER) ; //permet de centrer
 		fo.setBounds(90, 500, 260, 80);
 		fo.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3)); //bordure
 		
-		JLabel vi = new JLabel("Vitesse : " +monBob.vitesse, SwingConstants.CENTER) ;
+		vi = new JLabel("Vitesse : " +monBob.vitesse, SwingConstants.CENTER) ;
 		vi.setBounds(90, 600, 260, 80);
 		vi.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 		
-		JLabel intell = new JLabel("Intelligence : " +monBob.intel, SwingConstants.CENTER) ;
+		intell = new JLabel("Intelligence : " +monBob.intel, SwingConstants.CENTER) ;
 		intell.setBounds(90, 700, 260, 80);
 		intell.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 		
-		JLabel fertilite = new JLabel("Fertilite : " +monBob.fertilite, SwingConstants.CENTER) ;
+		fertilite = new JLabel("Fertilite : " +monBob.fertilite, SwingConstants.CENTER) ;
 		fertilite.setBounds(90, 800, 260, 80);
 		fertilite.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
-		
 		
 		Font f = new Font("Calibri", Font.PLAIN, 30); 
 		fo.setFont(f); vi.setFont(f); intell.setFont(f); fertilite.setFont(f); //change la police 
@@ -53,33 +55,37 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 		partieG.add(fo) ; partieG.add(vi) ; partieG.add(intell) ; partieG.add(fertilite) ;  
 		
 		///Panel 2 : image du ciel : la ou il y aura les evenements
-		JPanel partieCiel = new JPanel() ;
+		partieCiel = new JPanel() ;
 		partieCiel.setLayout(null);
 		partieCiel.setBackground(Color.CYAN);
 		partieCiel.setBounds(450, 0, 950, 500);
 		
-		JLabel imageCiel = new JLabel() ;
+		imageCiel = new JLabel() ;
 		imageCiel.setLayout(null); 
 		imageCiel.setBounds(0, 0, 950, 500);
 		//imageCiel.setText("!!!!");
 		imageCiel.setIcon(new ImageIcon("./Ciel-nuageux.jpg"));
 		partieCiel.add(imageCiel) ;
 		
-				//population 
-		JLabel pop = new JLabel("Population : " +monBob.population, SwingConstants.CENTER) ; //permet de centrer
+				//TODO actualisation de la population 
+		pop = new JLabel("Population : " +monBob.population, SwingConstants.CENTER) ; //permet de centrer
+		pop.setText("Population : " +monBob.population);
 		pop.setBounds(5, 5, 260, 50);
 		pop.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2)); //bordure
 		Font f2 = new Font("Calibri", Font.ITALIC, 25); 
 		pop.setFont(f2); 
 		pop.setOpaque(true);
 		pop.setBackground(Color.WHITE) ;
-		imageCiel.add(pop) ; 
+		imageCiel.add(pop) ; 								
+		
 		//partieCiel.add(pop) ; 
 		
 		//Panel 3 : la ou ilya une reprentation graphique de la populations : va bcp bouger
-		FenetreMatrice partieBas = new FenetreMatrice(monBob) ; 
+		partieBas = new FenetreMatrice(monBob) ; 
 		partieBas.setLayout(null);
 		partieBas.setBounds(450, 500, 950, 500);
+		
+		
 		
 		//TODO : faire une matrice avec des carres representant chacun un Bob
 		//1 case coloriee = 1 bob
@@ -93,7 +99,7 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 
 	}
 	
-
+	
 	// TODO public void actionPerformed(ActionEvent e) {	
 	// }
 	
