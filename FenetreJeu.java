@@ -5,7 +5,7 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 	//ne pas les mettre dans le constructeur
 		Bob monBob ; 
 		JPanel partieG ;	JPanel partieCiel ;
-		JLabel fo ; JLabel vi ; JLabel intell ; JLabel fertilite ;  JLabel imageCiel ; JLabel pop ; JLabel nomPop;
+		JLabel fo ; JLabel vi ; JLabel intell ; JLabel fertilite ;  JLabel imageCiel ; JLabel pop ; JLabel nomPop;JLabel imageBob ;
 		FenetreMatrice partieBas ; 
 		
 	public FenetreJeu(Bob monBob) {
@@ -22,13 +22,18 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 		partieG.setBackground(Color.GRAY);
 		partieG.setBounds(0, 0, 450, 1000);
 		
+		 //image du Blob
+        imageBob = new JLabel() ;
+		imageBob.setLayout(null); 
+		imageBob.setBounds(0, 0, 450,360);
+		imageBob.setIcon(new ImageIcon("./Blob.gif"));
+		partieG.add(imageBob) ; 
+		
 		//pour modifier la police
 			//Font f = new Font("Serif", Font.PLAIN, 36); // par exemple
 			//ton_JLabel.setFont(f); 
 		
 			//TODO ajouter image bob
-		
-		
 		
 		//force vitesse intelligence fertilit� pop
 		fo = new JLabel("Force : " +monBob.force, SwingConstants.CENTER) ; //permet de centrer

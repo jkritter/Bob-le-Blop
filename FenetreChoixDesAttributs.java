@@ -19,6 +19,8 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
     JLabel intelligenceLabel;
     JLabel fertiliteLabel;
     JLabel nomPopLabel;
+    JLabel imageBob ; 
+    JLabel regles ; 
     JButton valideButton;
     int valVitesse;
     int valFertilite;
@@ -28,7 +30,7 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
 
     Bob monBob;
     FenetreJeu maFenetreJeu;
-    FenetreErreur maFenetreErreur;
+    FenetreErreur E1;
     Jeu monJeu;
 
     public FenetreChoixDesAttributs (){
@@ -182,7 +184,19 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
         nomPopField.setFont(nPF); ; //change la police
         nomPopPanel.add(nomPopField);
 
-        
+        //image du Blob
+        imageBob = new JLabel() ;
+		imageBob.setLayout(null); 
+		imageBob.setBounds(300, 0, 500,800);
+		//imageCiel.setText("!!!!");
+		imageBob.setIcon(new ImageIcon("./Blob.gif"));
+		this.add(imageBob) ; 
+		
+		//regles du jeu
+		regles = new JLabel("Bienvenue ! ") ; 
+		regles.setLayout(null); 
+		regles.setBounds(300, 0, 500,800);
+	//	fertilite = new JLabel("Fertilite : " +monBob.fertilite, SwingConstants.CENTER) ;
 
 		attributsPanel.add(forcePanel);
         attributsPanel.add(vitessePanel);
@@ -205,9 +219,10 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
         if(somme<=300 && valVitesse <101 && valForce <101 && valIntelligence <101 && valFertilite<101 ) {
         monBob = new Bob(nomPop, valForce, valVitesse, valIntelligence, valFertilite); // Créer notre cher Blop
 
-        Jeu monJeu = new Jeu(monBob); // Lance le jeu !
+        //FenetreJeu maFenetreJeu = new FenetreJeu(monBob); // Lance le jeu
+        Jeu monJeu = new Jeu(monBob);
         }else {
-           FenetreErreur maFenetreErreur = new FenetreErreur("ATTENTION! \n Il ne faut pas que les valeurs depassent pas 100 et que leur somme ne depasse pas 300") ; //Ouvre une fenetre d'erreur si les valeurs rentrée sont trop hautes 
+           FenetreErreur E1 = new FenetreErreur("ATTENTION! \n Il ne faut pas que les valeurs depassent pas 100 et que leur somme ne depasse pas 300") ; 
        }
  ;    }
 }
