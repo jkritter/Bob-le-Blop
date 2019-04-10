@@ -28,7 +28,7 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
 
     Bob monBob;
     FenetreJeu maFenetreJeu;
-    FenetreErreur E1;
+    FenetreErreur maFenetreErreur;
     Jeu monJeu;
 
     public FenetreChoixDesAttributs (){
@@ -205,10 +205,9 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
         if(somme<=300 && valVitesse <101 && valForce <101 && valIntelligence <101 && valFertilite<101 ) {
         monBob = new Bob(nomPop, valForce, valVitesse, valIntelligence, valFertilite); // Créer notre cher Blop
 
-        //FenetreJeu maFenetreJeu = new FenetreJeu(monBob); // Lance le jeu
-        Jeu monJeu = new Jeu(monBob);
+        Jeu monJeu = new Jeu(monBob); // Lance le jeu !
         }else {
-           FenetreErreur E1 = new FenetreErreur("ATTENTION! \n Il ne faut pas que les valeurs depassent pas 100 et que leur somme ne depasse pas 300") ; 
+           FenetreErreur maFenetreErreur = new FenetreErreur("ATTENTION! \n Il ne faut pas que les valeurs depassent pas 100 et que leur somme ne depasse pas 300") ; //Ouvre une fenetre d'erreur si les valeurs rentrée sont trop hautes 
        }
  ;    }
 }

@@ -20,35 +20,7 @@ public class Jeu implements ActionListener{
 		temps = 0;
 		monChrono.start();
 		this.Cata = new Catastrophe(monBob);
-		
-		//jouer();
-	}
-	
-	//~ public void jouer() {
-		//~ //System.out.println("a");
-		//~ boolean enJeu = true;
-		//~ //maFenetreJeu = new FenetreJeu(monBob); // Lance la fenetre du jeu
-		//~ int victimes;
-		//~ while (enJeu) {
-			//~ //System.out.println("heho");
-			//~ if (eve == 1) {
-				//~ System.out.println("Reproduction");
-				
-				//~ eve = 0;
-			//~ } else if (eve == 2) {
-				//~ System.out.println("Catastrophe");
-				//~ victimes = Cata.evenement();
-				
-				//~ if (monBob.population > victimes) {
-					//~ monBob.population -= victimes;
-				//~ } else {
-					//~ monBob.population = 0;
-				//~ }
-				//~ System.out.println(monBob.population);
-				//~ eve = 0;
-			//~ }
-		//~ }
-	//~ }
+		}
 	
 	public void actionPerformed(ActionEvent e){
 		temps+=500;
