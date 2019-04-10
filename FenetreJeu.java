@@ -5,7 +5,7 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 	//ne pas les mettre dans le constructeur
 		Bob monBob ; 
 		JPanel partieG ;	JPanel partieCiel ;
-		JLabel fo ; JLabel vi ; JLabel intell ; JLabel fertilite ;  JLabel imageCiel ; JLabel pop ; 
+		JLabel fo ; JLabel vi ; JLabel intell ; JLabel fertilite ;  JLabel imageCiel ; JLabel pop ; JLabel nomPop;
 		FenetreMatrice partieBas ; 
 		
 	public FenetreJeu(Bob monBob) {
@@ -47,12 +47,17 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 		fertilite.setBounds(90, 800, 260, 80);
 		fertilite.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 		
-		Font f = new Font("Calibri", Font.PLAIN, 30); 
-		fo.setFont(f); vi.setFont(f); intell.setFont(f); fertilite.setFont(f); //change la police 
+		nomPop = new JLabel(monBob.nomPop, SwingConstants.CENTER) ;
+		nomPop.setBounds(90, 300, 260, 80);
+		nomPop.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
+
+		Font f = new Font("Calibri", Font.PLAIN, 30);
+		Font fP = new Font("Calibri", Font.PLAIN, 40);  
+		fo.setFont(f); vi.setFont(f); intell.setFont(f); fertilite.setFont(f); nomPop.setFont(fP); //change la police 
 		
-		fo.setOpaque(true) ; vi.setOpaque(true) ;intell.setOpaque(true) ;fertilite.setOpaque(true) ;
-		fo.setBackground(Color.WHITE) ;vi.setBackground(Color.WHITE) ;intell.setBackground(Color.WHITE) ;fertilite.setBackground(Color.WHITE) ;
-		partieG.add(fo) ; partieG.add(vi) ; partieG.add(intell) ; partieG.add(fertilite) ;  
+		fo.setOpaque(true) ; vi.setOpaque(true) ;intell.setOpaque(true) ;fertilite.setOpaque(true); nomPop.setOpaque(true);;
+		fo.setBackground(Color.WHITE) ;vi.setBackground(Color.WHITE) ;intell.setBackground(Color.WHITE) ;fertilite.setBackground(Color.WHITE) ; nomPop.setBackground(new Color(106, 223, 135));
+		partieG.add(fo) ; partieG.add(vi) ; partieG.add(intell) ; partieG.add(fertilite) ; partieG.add(nomPop);
 		
 		///Panel 2 : image du ciel : la ou il y aura les evenements
 		partieCiel = new JPanel() ;
