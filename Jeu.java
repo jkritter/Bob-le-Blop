@@ -1,3 +1,5 @@
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.Timer; 
 import java.awt.event.*;
 
@@ -37,6 +39,7 @@ public class Jeu implements ActionListener{
 			monBob.population += (int) (monBob.population * (5 + (2*Math.log(1+monBob.fertilite*monBob.fertilite) + (2*Math.random()-1)*3))/100);
 			maFenetreJeu.repaint();
 			maFenetreJeu.pop.setText("Population : " +monBob.population);
+			 maFenetreJeu.imageCiel.setIcon(new ImageIcon(".Reproduction.gif"));
             
 		} else if (aleat < 0.30 && temps >= temps0 + 3*delta) { //Catastrophe
             
@@ -46,22 +49,29 @@ public class Jeu implements ActionListener{
 			victimes = Cata.evenement();
             switch (Cata.id) { // affichage graphique de la catastrophe
                 case 0: //secheresse
-                
+          maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Secheresse.gif"));
+                	/* imageCiel = new JLabel() ;
+            		imageCiel.setLayout(null); 
+            		imageCiel.setBounds(0, 0, 950, 500);
+            		//imageCiel.setText("!!!!");
+            		imageCiel.setIcon(new ImageIcon("./Ciel-nuageux.jpg"));
+            		partieCiel.add(imageCiel) ; */ 
+                	
                     break;
                 case 1: //predateur
                 
                     break;
                 case 2: //intemperie
-                
+        maFenetreJeu.imageCiel.setIcon(new ImageIcon(".Intemperie.gif"));
                     break;
                 case 3: //penurie
                 
                     break;
                 case 4: //maladie
-                
+        maFenetreJeu.imageCiel.setIcon(new ImageIcon(".Maladie.gif"));
                     break;
                 case 5: //gilletsJaunes
-                
+        maFenetreJeu.imageCiel.setIcon(new ImageIcon(".GiletsJaunes.gif"));
                     break;
             }
             
