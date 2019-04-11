@@ -35,20 +35,22 @@ public class Jeu implements ActionListener{
             
             temps0 = temps; // place un marqueur temporel pour éviter que les actions se succedent trop rapidement
             
-			System.out.println("Reproduction");
+			//System.out.println("Reproduction");
 			monBob.population += (int) (monBob.population * (5 + (2*Math.log(1+monBob.fertilite*monBob.fertilite) + (2*Math.random()-1)*3))/100);
 			maFenetreJeu.repaint();
 			maFenetreJeu.pop.setText("Population : " +monBob.population);
 			 maFenetreJeu.imageCiel.setIcon(new ImageIcon(".Reproduction.gif"));
+			maFenetreJeu.nomCata.setText("Reproduction");
             
 		} else if (aleat < 0.30 && temps >= temps0 + 3*delta) { //Catastrophe
             
             temps0 = temps;
             
-			System.out.println("Catastrophe");
+			//System.out.println("Catastrophe");
 			victimes = Cata.evenement();
             switch (Cata.id) { // affichage graphique de la catastrophe
                 case 0: //secheresse
+			    maFenetreJeu.nomCata.setText("Secheresse");
           maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Secheresse.gif"));
                 	/* imageCiel = new JLabel() ;
             		imageCiel.setLayout(null); 
@@ -59,18 +61,23 @@ public class Jeu implements ActionListener{
                 	
                     break;
                 case 1: //predateur
+			    maFenetreJeu.nomCata.setText("Prédateur");
                 
                     break;
                 case 2: //intemperie
+			    maFenetreJeu.nomCata.setText("Intempérie");
         maFenetreJeu.imageCiel.setIcon(new ImageIcon(".Intemperie.gif"));
                     break;
                 case 3: //penurie
+			    maFenetreJeu.nomCata.setText("Pénurie");
                 
                     break;
                 case 4: //maladie
+			    maFenetreJeu.nomCata.setText("Maladie");
         maFenetreJeu.imageCiel.setIcon(new ImageIcon(".Maladie.gif"));
                     break;
-                case 5: //gilletsJaunes
+                case 5: //gilets jaunes
+			    maFenetreJeu.nomCata.setText("Gilets Jaunes");
         maFenetreJeu.imageCiel.setIcon(new ImageIcon(".GiletsJaunes.gif"));
                     break;
             }
@@ -86,7 +93,12 @@ public class Jeu implements ActionListener{
 		maFenetreJeu.repaint();
 		maFenetreJeu.pop.setText("Population : " +monBob.population);
 		}
-		System.out.println(monBob.population);
+		
+		if (temps >= temps0 + 3*delta) {
+             		maFenetreJeu.nomCata.setText("");
+        	}
+		
+		//System.out.println(monBob.population);
 		victimes = 0;
 		
 		if (temps > 240*delta) { //s'arrete au bout de 2 minutes
