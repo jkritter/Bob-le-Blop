@@ -147,7 +147,7 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
         fertiliteLabel.setLayout(null);
         fertiliteLabel.setText("Fertilite");
         Font feL = new Font("Calibri", Font.PLAIN, 30); 
-        fertiliteLabel.setFont(feL); ; //change la police
+        fertiliteLabel.setFont(feL); //change la police
         fertiliteLabel.setBounds(25,50,100,50);
         fertilitePanel.add(fertiliteLabel);
 
@@ -169,7 +169,7 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
         //Texte nomPop
         nomPopLabel = new JLabel();
         nomPopLabel.setLayout(null);
-        nomPopLabel.setText("Nom Blop");
+        nomPopLabel.setText("Nom Blob");
         Font nPL = new Font("Calibri", Font.PLAIN, 30); 
         nomPopLabel.setFont(nPL); ; //change la police
         nomPopLabel.setBounds(20,25,150,40);
@@ -187,15 +187,24 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
         //image du Blob
         imageBob = new JLabel() ;
 		imageBob.setLayout(null); 
-		imageBob.setBounds(300, 0, 500,800);
+		imageBob.setBounds(300, 220, 500,360);
 		//imageCiel.setText("!!!!");
 		imageBob.setIcon(new ImageIcon("./Blob.gif"));
 		this.add(imageBob) ; 
 		
 		//regles du jeu
-		regles = new JLabel("Bienvenue ! ") ; 
+		regles = new JLabel() ; 
+		regles.setText("<html> Bienvenue !  <br> Vous allez maintenant choisir les "
+				+ "caractéristiques de votre blob, le but etant que la population soit la plus grande possible à la fin de la partie. "
+				+ "Vous avez 300 points au total à répartir dans chacune des caracteristiques, sans dépasser 120points par caracteristiques."
+				+ "<br> Bonne chance ! <html>") ; 
 		regles.setLayout(null); 
-		regles.setBounds(300, 0, 500,800);
+		regles.setBounds(310, 570, 490,220);
+		//regles.setOpaque(true) ;
+        Font re = new Font("Calibri", Font.PLAIN, 17); 
+        regles.setFont(re); 
+        regles.setForeground(new Color(98,255,130));
+		this.add(regles) ;
 	//	fertilite = new JLabel("Fertilite : " +monBob.fertilite, SwingConstants.CENTER) ;
 
 		attributsPanel.add(forcePanel);
