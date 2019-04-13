@@ -5,7 +5,7 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 	//ne pas les mettre dans le constructeur
 		Bob monBob ; 
 		JPanel partieG ;	JPanel partieCiel ;
-		JLabel fo ; JLabel vi ; JLabel intell ; JLabel fertilite ;  JLabel imageCiel ; JLabel pop ; JLabel nomPop;JLabel imageBob ; JLabel nomCata ;
+		JLabel fo ; JLabel vi ; JLabel intell ; JLabel fertilite ;  JLabel imageCiel ; JLabel pop ; JLabel nomPop; JLabel imageBob ; JLabel nomCata;
 		FenetreMatrice partieBas ; 
 		
 	public FenetreJeu(Bob monBob) {
@@ -53,7 +53,7 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 		fertilite.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 		
 		nomPop = new JLabel(monBob.nomPop, SwingConstants.CENTER) ;
-		nomPop.setBounds(90, 300, 260, 80);
+		nomPop.setBounds(80, 400, 280, 80);
 		nomPop.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 
 		Font f = new Font("Calibri", Font.PLAIN, 30);
@@ -67,7 +67,7 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 		///Panel 2 : image du ciel : la ou il y aura les evenements
 		partieCiel = new JPanel() ;
 		partieCiel.setLayout(null);
-		partieCiel.setBackground(Color.CYAN);
+		partieCiel.setBackground(Color.lightGray);
 		partieCiel.setBounds(450, 0, 950, 500);
 		
 		imageCiel = new JLabel() ;
@@ -86,7 +86,7 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 		pop.setFont(f2); 
 		pop.setOpaque(true);
 		pop.setBackground(Color.WHITE) ;
-		imageCiel.add(pop) ;
+		imageCiel.add(pop) ; 								
 		
 		nomCata = new JLabel("", SwingConstants.CENTER) ; //permet de centrer
 		nomCata.setText("");
@@ -94,7 +94,6 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 		Font f3 = new Font("Calibri", Font.BOLD, 30); 
 		nomCata.setFont(f3);
 		imageCiel.add(nomCata) ;
-		
 		//partieCiel.add(pop) ; 
 		
 		//Panel 3 : la ou ilya une reprentation graphique de la populations : va bcp bouger

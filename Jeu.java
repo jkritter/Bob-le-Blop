@@ -39,7 +39,7 @@ public class Jeu implements ActionListener{
 			monBob.population += (int) (monBob.population * (5 + (2*Math.log(1+monBob.fertilite*monBob.fertilite) + (2*Math.random()-1)*3))/100);
 			maFenetreJeu.repaint();
 			maFenetreJeu.pop.setText("Population : " +monBob.population);
-			 maFenetreJeu.imageCiel.setIcon(new ImageIcon(".Reproduction.gif"));
+			maFenetreJeu.imageCiel.setIcon(new ImageIcon(".Reproduction.gif"));
 			maFenetreJeu.nomCata.setText("Reproduction");
             
 		} else if (aleat < 0.30 && temps >= temps0 + 3*delta) { //Catastrophe
@@ -51,7 +51,7 @@ public class Jeu implements ActionListener{
             switch (Cata.id) { // affichage graphique de la catastrophe
                 case 0: //secheresse
 			    maFenetreJeu.nomCata.setText("Secheresse");
-          maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Secheresse.gif"));
+          		maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Secheresse.gif"));
                 	/* imageCiel = new JLabel() ;
             		imageCiel.setLayout(null); 
             		imageCiel.setBounds(0, 0, 950, 500);
@@ -62,25 +62,25 @@ public class Jeu implements ActionListener{
                     break;
                 case 1: //predateur
 			    maFenetreJeu.nomCata.setText("Prédateur");
-                
+                maFenetreJeu.imageCiel.setIcon(new ImageIcon(".Predateur.gif"));
                     break;
                 case 2: //intemperie
 			    maFenetreJeu.nomCata.setText("Intempérie");
-        maFenetreJeu.imageCiel.setIcon(new ImageIcon(".Intemperie.gif"));
+        		maFenetreJeu.imageCiel.setIcon(new ImageIcon(".Intemperie.gif"));
                     break;
                 case 3: //penurie
-			    maFenetreJeu.nomCata.setText("Pénurie");
-                
+				maFenetreJeu.nomCata.setText("Pénurie");
+				maFenetreJeu.imageCiel.setIcon(new ImageIcon(".Maladie.gif"));                
                     break;
                 case 4: //maladie
 			    maFenetreJeu.nomCata.setText("Maladie");
-        maFenetreJeu.imageCiel.setIcon(new ImageIcon(".Maladie.gif"));
+        		maFenetreJeu.imageCiel.setIcon(new ImageIcon(".Maladie.gif"));
                     break;
                 case 5: //gilets jaunes
 			    maFenetreJeu.nomCata.setText("Gilets Jaunes");
-        maFenetreJeu.imageCiel.setIcon(new ImageIcon(".GiletsJaunes.gif"));
-                    break;
-            }
+        		maFenetreJeu.imageCiel.setIcon(new ImageIcon(".GiletsJaunes.gif"));
+					break;
+			}
             
 			if (monBob.population > victimes) {
 					monBob.population -= victimes;
@@ -95,7 +95,9 @@ public class Jeu implements ActionListener{
 		}
 		
 		if (temps >= temps0 + 3*delta) {
-             		maFenetreJeu.nomCata.setText("");
+					maFenetreJeu.nomCata.setText("");
+					maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Ciel-nuageux.jpg"));
+					maFenetreJeu.repaint();
         	}
 		
 		//System.out.println(monBob.population);
@@ -108,7 +110,17 @@ public class Jeu implements ActionListener{
 	}
     
     public void finJeu() {
-        System.out.println("C'est fini");
+		maFenetreJeu.nomCata.setText("Simulation terminé ! Votre score : "+monBob.population);
+		maFenetreJeu.pop.setVisible(false);
+
+		if(monBob.population<50){
+			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Defaite"));
+		}
+
+		if(monBob.population>50){
+			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Victoire"));
+		}
+		maFenetreJeu.repaint();
     }
 }
 

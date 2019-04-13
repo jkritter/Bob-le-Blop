@@ -18,7 +18,7 @@ public class FenetreErreur extends JFrame{
 		fond = new JPanel();
 		fond.setLayout(null);
 		fond.setBounds(0,0,1200,200);
-		fond.setBackground(Color.red);
+		fond.setBackground(Color.lightGray);
 		JLabel erreur = new JLabel(message) ; //permet de centrer
 		Font e = new Font("Tahoma", Font.PLAIN, 20); 
 		erreur.setFont(e);
