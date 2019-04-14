@@ -195,8 +195,8 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
 		//regles du jeu
 		regles = new JLabel() ; 
 		regles.setText("<html> Bienvenue !  <br> Vous allez maintenant choisir les "
-				+ "caractéristiques de votre blob, le but etant que la population soit la plus grande possible à la fin de la partie. "
-				+ "Vous avez 300 points au total à répartir dans chacune des caracteristiques, sans dépasser 120points par caracteristiques."
+				+ "caracteristiques de votre blob, le but etant que la population soit la plus grande possible a la fin de la partie. "
+				+ "Vous avez 300 points au total a repartir dans chacune des caracteristiques, sans depasser 120points par caracteristiques."
 				+ "<br> Bonne chance ! <html>") ; 
 		regles.setLayout(null); 
 		regles.setBounds(310, 570, 490,220);
