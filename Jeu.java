@@ -39,7 +39,7 @@ public class Jeu implements ActionListener{
 			monBob.population += (int) (monBob.population * (5 + (2*Math.log(1+monBob.fertilite*monBob.fertilite) + (2*Math.random()-1)*3))/100);
 			maFenetreJeu.repaint();
 			maFenetreJeu.pop.setText("Population : " +monBob.population);
-			maFenetreJeu.imageCiel.setIcon(new ImageIcon(".Reproduction.gif"));
+			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Reproduction.gif"));
 			maFenetreJeu.nomCata.setText("Reproduction");
             
 		} else if (aleat < 0.30 && temps >= temps0 + 3*delta) { //Catastrophe
@@ -61,27 +61,31 @@ public class Jeu implements ActionListener{
                 	
                     break;
                 case 1: //predateur
-			    maFenetreJeu.nomCata.setText("Prédateur");
-                maFenetreJeu.imageCiel.setIcon(new ImageIcon(".Predateur.gif"));
+			    maFenetreJeu.nomCata.setText("Predateur");
+               maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Predateur.gif"));
+                
                     break;
                 case 2: //intemperie
-			    maFenetreJeu.nomCata.setText("Intempérie");
-        		maFenetreJeu.imageCiel.setIcon(new ImageIcon(".Intemperie.gif"));
+			   maFenetreJeu.nomCata.setText("Intemperie");
+        		maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Intemperie.gif"));
+        		
                     break;
                 case 3: //penurie
-				maFenetreJeu.nomCata.setText("Pénurie");
-				maFenetreJeu.imageCiel.setIcon(new ImageIcon(".Maladie.gif"));                
+				maFenetreJeu.nomCata.setText("Penurie");
+				maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Maladie.gif"));         
+				
                     break;
                 case 4: //maladie
-			    maFenetreJeu.nomCata.setText("Maladie");
-        		maFenetreJeu.imageCiel.setIcon(new ImageIcon(".Maladie.gif"));
+			   maFenetreJeu.nomCata.setText("Maladie");
+        		maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Maladie.gif"));
+        		
                     break;
                 case 5: //gilets jaunes
-			    maFenetreJeu.nomCata.setText("Gilets Jaunes");
-        		maFenetreJeu.imageCiel.setIcon(new ImageIcon(".GiletsJaunes.gif"));
+			   maFenetreJeu.nomCata.setText("Gilets Jaunes");
+        	maFenetreJeu.imageCiel.setIcon(new ImageIcon("./GiletsJaunes.gif"));  
 					break;
 			}
-            
+                      
 			if (monBob.population > victimes) {
 					monBob.population -= victimes;
 			} else { // arrete le jeu si il n'y a plus d'individus
@@ -114,11 +118,11 @@ public class Jeu implements ActionListener{
 		maFenetreJeu.pop.setVisible(false);
 
 		if(monBob.population<50){
-			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Defaite"));
+			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Defaite.gif"));
 		}
 
 		if(monBob.population>50){
-			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Victoire"));
+			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Victoire.gif"));
 		}
 		maFenetreJeu.repaint();
     }
