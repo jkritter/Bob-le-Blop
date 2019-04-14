@@ -14,6 +14,7 @@ public class Jeu implements ActionListener{
 	private int eve;
 	private Catastrophe Cata;
 	private int victimes;
+    private int reproduction;
 	
 	public Jeu (Bob monBob) {
 		
@@ -31,16 +32,18 @@ public class Jeu implements ActionListener{
 	public void actionPerformed(ActionEvent e){ // boucle de jeu, s'execute toutes les 500 ms
 		temps += delta;
 		double aleat = Math.random(); 
+        
 		if (aleat < 0.15 && temps >= temps0 + 3*delta) { //Reproduction
             
             temps0 = temps; // place un marqueur temporel pour éviter que les actions se succedent trop rapidement
             
 			System.out.println("Reproduction");
-			monBob.population += (int) (monBob.population * (5 + (2*Math.log(1+monBob.fertilite*monBob.fertilite) + (2*Math.random()-1)*3))/100);
+			reproduction = (int) (monBob.population * (5 + (2*Math.log(1+monBob.fertilite*monBob.fertilite) + (2*Math.random()-1)*3))/100);
+            monBob.population += reproduction;
 			maFenetreJeu.repaint();
 			maFenetreJeu.pop.setText("Population : " +monBob.population);
 			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Reproduction.gif"));
-			maFenetreJeu.nomCata.setText("Reproduction");
+			maFenetreJeu.nomCata.setText("Reproduction  (+" + reproduction + ")");
             
 		} else if (aleat < 0.30 && temps >= temps0 + 3*delta) { //Catastrophe
             
@@ -48,46 +51,41 @@ public class Jeu implements ActionListener{
             
 			System.out.println("Catastrophe");
 			victimes = Cata.evenement();
+            
             switch (Cata.id) { // affichage graphique de la catastrophe
                 case 0: //secheresse
-			    maFenetreJeu.nomCata.setText("Secheresse");
-          		maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Secheresse.gif"));
-                	/* imageCiel = new JLabel() ;
-            		imageCiel.setLayout(null); 
-            		imageCiel.setBounds(0, 0, 950, 500);
-            		//imageCiel.setText("!!!!");
-            		imageCiel.setIcon(new ImageIcon("./Ciel-nuageux.jpg"));
-            		partieCiel.add(imageCiel) ; */ 
+                    maFenetreJeu.nomCata.setText("Secheresse  (-" + victimes + ")");
+                    maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Secheresse.gif"));
                 	
                     break;
                 case 1: //predateur
-			    maFenetreJeu.nomCata.setText("Predateur");
-               maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Predateur.gif"));
+                    maFenetreJeu.nomCata.setText("Predateur  (-" + victimes + ")");
+                    maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Predateur.gif"));
                 
                     break;
                 case 2: //intemperie
-			   maFenetreJeu.nomCata.setText("Intemperie");
-        		maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Intemperie.gif"));
+                    maFenetreJeu.nomCata.setText("Intemperie  (-" + victimes + ")");
+                    maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Intemperie.gif"));
         		
                     break;
                 case 3: //penurie
-				maFenetreJeu.nomCata.setText("Penurie");
-				maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Maladie.gif"));         
+                    maFenetreJeu.nomCata.setText("Penurie  (-" + victimes + ")");
+                    maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Maladie.gif"));         
 				
                     break;
                 case 4: //maladie
-			   maFenetreJeu.nomCata.setText("Maladie");
-        		maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Maladie.gif"));
+                    maFenetreJeu.nomCata.setText("Maladie  (-" + victimes + ")");
+                    maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Maladie.gif"));
         		
                     break;
                 case 5: //gilets jaunes
-			   maFenetreJeu.nomCata.setText("Gilets Jaunes");
-        	maFenetreJeu.imageCiel.setIcon(new ImageIcon("./GiletsJaunes.gif"));  
+                    maFenetreJeu.nomCata.setText("Gilets Jaunes  (-" + victimes + ")");
+                    maFenetreJeu.imageCiel.setIcon(new ImageIcon("./GiletsJaunes.gif"));  
 					break;
 			}
                       
 			if (monBob.population > victimes) {
-					monBob.population -= victimes;
+                monBob.population -= victimes;
 			} else { // arrete le jeu si il n'y a plus d'individus
 				monBob.population = 0;
                 monChrono.stop();

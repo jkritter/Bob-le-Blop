@@ -13,7 +13,7 @@ public class Catastrophe {
 	
 	public int evenement() {
 		
-		id = (int) (Math.random()*5); // ID aléatoire de la catastrophe
+		id = (int) (Math.random()*6); // ID aléatoire de la catastrophe
 		switch (id) {
 			case 0:
 				secheresse();
