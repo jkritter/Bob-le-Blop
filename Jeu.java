@@ -98,7 +98,7 @@ public class Jeu implements ActionListener{
 		maFenetreJeu.pop.setText("Population : " +monBob.population);
 		}
 		
-		if (temps >= temps0 + 3*delta) {
+		if (temps == temps0 + 3*delta) {
 					maFenetreJeu.nomCata.setText("");
 					maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Ciel-nuageux.jpg"));
 					maFenetreJeu.repaint();
@@ -114,7 +114,7 @@ public class Jeu implements ActionListener{
 	}
     
     public void finJeu() {
-		maFenetreJeu.nomCata.setText("Simulation terminé ! Votre score : "+monBob.population);
+		maFenetreJeu.nomCata.setText("Simulation terminée ! Votre score : "+monBob.population);
 		maFenetreJeu.pop.setVisible(false);
 
 		if(monBob.population<50){
