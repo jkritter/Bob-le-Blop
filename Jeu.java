@@ -62,23 +62,23 @@ public class Jeu implements ActionListener{
                     break;
                 case 1: //predateur
 			    maFenetreJeu.nomCata.setText("Prédateur");
-                maFenetreJeu.imageCiel.setIcon(new ImageIcon(".Predateur.gif"));
+                maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Predateur.gif"));
                     break;
                 case 2: //intemperie
 			    maFenetreJeu.nomCata.setText("Intempérie");
-        		maFenetreJeu.imageCiel.setIcon(new ImageIcon(".Intemperie.gif"));
+        		maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Intemperie.gif"));
                     break;
                 case 3: //penurie
 				maFenetreJeu.nomCata.setText("Pénurie");
-				maFenetreJeu.imageCiel.setIcon(new ImageIcon(".Maladie.gif"));                
+				maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Maladie.gif"));                
                     break;
                 case 4: //maladie
 			    maFenetreJeu.nomCata.setText("Maladie");
-        		maFenetreJeu.imageCiel.setIcon(new ImageIcon(".Maladie.gif"));
+        		maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Maladie.gif"));
                     break;
                 case 5: //gilets jaunes
 			    maFenetreJeu.nomCata.setText("Gilets Jaunes");
-        		maFenetreJeu.imageCiel.setIcon(new ImageIcon(".GiletsJaunes.gif"));
+        		maFenetreJeu.imageCiel.setIcon(new ImageIcon("./GiletsJaunes.gif"));
 					break;
 			}
             
@@ -114,11 +114,11 @@ public class Jeu implements ActionListener{
 		maFenetreJeu.pop.setVisible(false);
 
 		if(monBob.population<50){
-			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Defaite"));
+			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Defaite.gif"));
 		}
 
 		if(monBob.population>50){
-			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Victoire"));
+			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Victoire.gif"));
 		}
 		maFenetreJeu.repaint();
     }
