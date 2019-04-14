@@ -44,6 +44,7 @@ public class Jeu implements ActionListener{
 			maFenetreJeu.pop.setText("Population : " +monBob.population);
 			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Reproduction.gif"));
 			maFenetreJeu.nomCata.setText("Reproduction  (+" + reproduction + ")");
+            maFenetreJeu.nomCata.setOpaque(true);
             
 		} else if (aleat < 0.30 && temps >= temps0 + 3*delta) { //Catastrophe
             
@@ -51,6 +52,7 @@ public class Jeu implements ActionListener{
             
 			System.out.println("Catastrophe");
 			victimes = Cata.evenement();
+            maFenetreJeu.nomCata.setOpaque(true);
             
             switch (Cata.id) { // affichage graphique de la catastrophe
                 case 0: //secheresse
@@ -94,10 +96,12 @@ public class Jeu implements ActionListener{
             
 		maFenetreJeu.repaint();
 		maFenetreJeu.pop.setText("Population : " +monBob.population);
+        maFenetreJeu.nomCata.setOpaque(true);
 		}
 		
 		if (temps == temps0 + 3*delta) {
 					maFenetreJeu.nomCata.setText("");
+                    maFenetreJeu.nomCata.setOpaque(false);
 					maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Ciel-nuageux.jpg"));
 					maFenetreJeu.repaint();
         	}
@@ -113,6 +117,8 @@ public class Jeu implements ActionListener{
     
     public void finJeu() {
 		maFenetreJeu.nomCata.setText("Simulation terminée ! Votre score : "+monBob.population);
+        maFenetreJeu.nomCata.setBounds(240, 5, 520, 60);
+        maFenetreJeu.nomCata.setOpaque(true);
 		maFenetreJeu.pop.setVisible(false);
 
 		if(monBob.population<50){

@@ -90,9 +90,11 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 		
 		nomCata = new JLabel("", SwingConstants.CENTER) ; //permet de centrer
 		nomCata.setText("");
-		nomCata.setBounds(5, 5, 1000, 60);
+		nomCata.setBounds(360, 5, 340, 60);
 		Font f3 = new Font("Calibri", Font.BOLD, 30); 
 		nomCata.setFont(f3);
+        nomCata.setOpaque(false);
+        nomCata.setBackground(Color.WHITE) ;
 		imageCiel.add(nomCata) ;
 		//partieCiel.add(pop) ; 
 		
