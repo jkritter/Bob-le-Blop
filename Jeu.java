@@ -117,12 +117,12 @@ public class Jeu implements ActionListener{
 
 		if(monBob.population<50){
 			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Defaite.gif"));
-		}
-
-		if(monBob.population>50){
+			maFenetreJeu.repaint();
+		}else {
 			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Victoire.gif"));
+			maFenetreJeu.repaint();
 		}
-		maFenetreJeu.repaint();
+		
     }
 }
 
