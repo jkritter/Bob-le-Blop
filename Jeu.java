@@ -40,7 +40,7 @@ public class Jeu implements ActionListener{
 			System.out.println("Reproduction");
 			reproduction = (int) (monBob.population * (5 + (2*Math.log(1+monBob.fertilite*monBob.fertilite) + (2*Math.random()-1)*3))/100);
             monBob.population += reproduction;
-			maFenetreJeu.repaint();
+            
 			maFenetreJeu.pop.setText("Population : " +monBob.population);
 			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Reproduction.gif"));
 			maFenetreJeu.nomCata.setText("Reproduction  (+" + reproduction + ")");
@@ -88,31 +88,46 @@ public class Jeu implements ActionListener{
                       
 			if (monBob.population > victimes) {
                 monBob.population -= victimes;
-			} else { // arrete le jeu si il n'y a plus d'individus
+			} else { // evite que le nombre de population soit négatif
 				monBob.population = 0;
-                monChrono.stop();
-                finJeu();
+                temps0 = temps;
 			}
-            
-		maFenetreJeu.repaint();
-		maFenetreJeu.pop.setText("Population : " +monBob.population);
-        maFenetreJeu.nomCata.setOpaque(true);
+
+            maFenetreJeu.pop.setText("Population : " +monBob.population);
+            maFenetreJeu.nomCata.setOpaque(true);
 		}
+        
+        if (temps < 10000) { // affichage du chrono
+            maFenetreJeu.chrono.setText(temps/60000 + ":0" + temps/1000);
+        } else if (temps < 60000) {
+            maFenetreJeu.chrono.setText(temps/60000 + ":" + temps/1000);
+        } else if (temps < 70000) {
+            maFenetreJeu.chrono.setText(temps/60000 + ":0" + (temps-60000)/1000);
+        } else if (temps < 120000) {
+            maFenetreJeu.chrono.setText(temps/60000 + ":" + (temps-60000)/1000);
+        } else {
+            maFenetreJeu.chrono.setText(temps/60000 + ":0" + (temps-120000)/1000);
+        }
 		
-		if (temps == temps0 + 3*delta) {
+		if (temps >= temps0 + 3*delta) { // remet l'image du ciel
 					maFenetreJeu.nomCata.setText("");
                     maFenetreJeu.nomCata.setOpaque(false);
 					maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Ciel-nuageux.jpg"));
-					maFenetreJeu.repaint();
         	}
-		
-		System.out.println(monBob.population);
-		victimes = 0;
+        
+        if (monBob.population == 0 && temps > temps0 + 2*delta) { //arrete le jeu quand il n'y a plus de blobs
+            monChrono.stop();
+            finJeu();
+        }
 		
 		if (temps > 240*delta) { //s'arrete au bout de 2 minutes
 			monChrono.stop();
             finJeu();
 		}
+        
+        System.out.println(monBob.population);
+        victimes = 0;
+        maFenetreJeu.repaint();
 	}
     
     public void finJeu() {
@@ -121,14 +136,13 @@ public class Jeu implements ActionListener{
         maFenetreJeu.nomCata.setOpaque(true);
 		maFenetreJeu.pop.setVisible(false);
 
-		if(monBob.population<0){
+		if (monBob.population < 100){
 			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Defaite.gif"));
-			maFenetreJeu.repaint();
-		}else {
+		} else {
 			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Victoire.gif"));
-			maFenetreJeu.repaint();
 		}
-		
+        
+        maFenetreJeu.repaint();
     }
 }
 

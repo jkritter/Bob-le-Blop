@@ -5,7 +5,7 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 	//ne pas les mettre dans le constructeur
 		Bob monBob ; 
 		JPanel partieG ;	JPanel partieCiel ;
-		JLabel fo ; JLabel vi ; JLabel intell ; JLabel fertilite ;  JLabel imageCiel ; JLabel pop ; JLabel nomPop; JLabel imageBob ; JLabel nomCata;
+		JLabel fo ; JLabel vi ; JLabel intell ; JLabel fertilite ;  JLabel imageCiel ; JLabel pop ; JLabel nomPop; JLabel imageBob ; JLabel nomCata; JLabel chrono ;
 		FenetreMatrice partieBas ; 
 		
 	public FenetreJeu(Bob monBob) {
@@ -88,9 +88,19 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 		pop.setBackground(Color.WHITE) ;
 		imageCiel.add(pop) ; 								
 		
+        chrono = new JLabel("", SwingConstants.CENTER) ;
+        chrono.setText("0:00");
+        chrono.setBounds(860, 5, 80, 50);
+        chrono.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));
+        Font f4 = new Font("Calibri", Font.PLAIN, 25);
+        chrono.setFont(f4);
+        chrono.setOpaque(true);
+        chrono.setBackground(Color.WHITE) ;
+        imageCiel.add(chrono);
+        
 		nomCata = new JLabel("", SwingConstants.CENTER) ; //permet de centrer
 		nomCata.setText("");
-		nomCata.setBounds(5, 5, 1000, 60);
+		nomCata.setBounds(0, 0, 1000, 60);
 		Font f3 = new Font("Calibri", Font.BOLD, 30); 
 		nomCata.setFont(f3);
 		imageCiel.add(nomCata) ;
