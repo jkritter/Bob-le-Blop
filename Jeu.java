@@ -121,7 +121,7 @@ public class Jeu implements ActionListener{
         maFenetreJeu.nomCata.setOpaque(true);
 		maFenetreJeu.pop.setVisible(false);
 
-		if(monBob.population<50){
+		if(monBob.population<0){
 			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Defaite.gif"));
 			maFenetreJeu.repaint();
 		}else {
