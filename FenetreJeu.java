@@ -26,7 +26,7 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
         imageBob = new JLabel() ;
 		imageBob.setLayout(null); 
 		imageBob.setBounds(0, 0, 450,360);
-		imageBob.setIcon(new ImageIcon("./Blob.gif"));
+		imageBob.setIcon(new ImageIcon("./Images/Blob.gif"));
 		partieG.add(imageBob) ; 
 		
 		//pour modifier la police
@@ -74,7 +74,7 @@ public class FenetreJeu extends JFrame{ //implements actionlistener
 		imageCiel.setLayout(null); 
 		imageCiel.setBounds(0, 0, 950, 500);
 		//imageCiel.setText("!!!!");
-		imageCiel.setIcon(new ImageIcon("./Ciel-nuageux.jpg"));
+		imageCiel.setIcon(new ImageIcon("./Images/Ciel-nuageux.jpg"));
 		partieCiel.add(imageCiel) ;
 		
 				//TODO actualisation de la population 

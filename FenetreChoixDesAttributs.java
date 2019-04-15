@@ -189,7 +189,7 @@ public class FenetreChoixDesAttributs extends JFrame implements ActionListener {
 		imageBob.setLayout(null); 
 		imageBob.setBounds(300, 220, 500,360);
 		//imageCiel.setText("!!!!");
-		imageBob.setIcon(new ImageIcon("./Blob.gif"));
+		imageBob.setIcon(new ImageIcon("./Images/Blob.gif"));
 		this.add(imageBob) ; 
 		
 		//regles du jeu
