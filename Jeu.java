@@ -37,7 +37,7 @@ public class Jeu implements ActionListener{
             
             temps0 = temps; // place un marqueur temporel pour éviter que les actions se succedent trop rapidement
             
-			System.out.println("Reproduction");
+			//System.out.println("Reproduction");
 			reproduction = (int) (monBob.population * (5 + (2*Math.log(1+monBob.fertilite*monBob.fertilite) + (2*Math.random()-1)*3))/100);
             monBob.population += reproduction;
             
@@ -50,7 +50,7 @@ public class Jeu implements ActionListener{
             
             temps0 = temps;
             
-			System.out.println("Catastrophe");
+			//System.out.println("Catastrophe");
 			victimes = Cata.evenement();
             maFenetreJeu.nomCata.setOpaque(true);
             
@@ -125,7 +125,7 @@ public class Jeu implements ActionListener{
             finJeu();
 		}
         
-        System.out.println(monBob.population);
+        //System.out.println(monBob.population);
         victimes = 0;
         maFenetreJeu.repaint();
 	}
