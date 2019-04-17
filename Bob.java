@@ -8,15 +8,13 @@ public class Bob {
 		int population ; 
 		String nomPop ; 
 		
-						//mode al�atoire ? 
-	public Bob(String nomPop, int force, int vitesse, int intel, int fertilite) {
+	public Bob (String nomPop, int force, int vitesse, int intel, int fertilite) {
 		this.nomPop = nomPop ; 
-		this.population = 100; // � changer si jamais
+		this.population = 100;
 		this.force = force ;
 		this.vitesse = vitesse ; 
 		this.intel = intel ; 
 		this.fertilite = fertilite ; 
-		// v�rifier que le total fasse moins que 500 AVANT d'envoyer au constructeur	
 	}
 
 	public String toString () {

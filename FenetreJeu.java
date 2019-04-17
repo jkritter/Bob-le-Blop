@@ -3,7 +3,7 @@ import java.awt.*; import javax.swing.*; import java.awt.event.* ;
 public class FenetreJeu extends JFrame{ 
 		Bob monBob ; 
 		JPanel partieG ;	JPanel partieCiel ;
-		JLabel fo ; JLabel vi ; JLabel intell ; JLabel fertilite ;  JLabel imageCiel ; JLabel pop ; JLabel nomPop; JLabel imageBob ; JLabel nomCata;
+		JLabel fo ; JLabel vi ; JLabel intell ; JLabel fertilite ;  JLabel imageCiel ; JLabel pop ; JLabel nomPop; JLabel imageBob ; JLabel nomCata; JLabel chrono ;
 		FenetreMatrice partieBas ; 
 		
 	public FenetreJeu(Bob monBob) {
@@ -23,7 +23,7 @@ public class FenetreJeu extends JFrame{
         imageBob = new JLabel() ;
 		imageBob.setLayout(null); 
 		imageBob.setBounds(0, 0, 450,360);
-		imageBob.setIcon(new ImageIcon("./Blob.gif"));
+		imageBob.setIcon(new ImageIcon("./Images/Blob.gif"));
 		partieG.add(imageBob) ; 
 		
 		//force vitesse intelligence fertilit� pop
@@ -64,7 +64,7 @@ public class FenetreJeu extends JFrame{
 		imageCiel = new JLabel() ;
 		imageCiel.setLayout(null); 
 		imageCiel.setBounds(0, 0, 950, 500);
-		imageCiel.setIcon(new ImageIcon("./Ciel-nuageux.jpg"));
+		imageCiel.setIcon(new ImageIcon("./Images/Ciel-nuageux.jpg"));
 		partieCiel.add(imageCiel) ;
 		
 				// actualisation de la population 
@@ -78,9 +78,19 @@ public class FenetreJeu extends JFrame{
 		pop.setBackground(Color.WHITE) ;
 		imageCiel.add(pop) ; 								
 		
+        chrono = new JLabel("", SwingConstants.CENTER) ;
+        chrono.setText("0:00");
+        chrono.setBounds(860, 5, 80, 50);
+        chrono.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));
+        Font f4 = new Font("Calibri", Font.PLAIN, 25);
+        chrono.setFont(f4);
+        chrono.setOpaque(true);
+        chrono.setBackground(Color.WHITE) ;
+        imageCiel.add(chrono);
+        
 		nomCata = new JLabel("", SwingConstants.CENTER) ; //permet de centrer
 		nomCata.setText("");
-		nomCata.setBounds(5, 5, 1000, 60);
+		nomCata.setBounds(0, 0, 1000, 60);
 		Font f3 = new Font("Calibri", Font.BOLD, 30); 
 		nomCata.setFont(f3);
 		imageCiel.add(nomCata) ;

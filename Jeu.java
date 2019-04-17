@@ -40,9 +40,9 @@ public class Jeu implements ActionListener{
 			System.out.println("Reproduction");
 			reproduction = (int) (monBob.population * (5 + (2*Math.log(1+monBob.fertilite*monBob.fertilite) + (2*Math.random()-1)*3))/100);
             monBob.population += reproduction;
-			maFenetreJeu.repaint();
+            
 			maFenetreJeu.pop.setText("Population : " +monBob.population);
-			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Reproduction.gif"));
+			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Images/Reproduction.gif"));
 			maFenetreJeu.nomCata.setText("Reproduction  (+" + reproduction + ")");
             maFenetreJeu.nomCata.setOpaque(true);
             
@@ -57,64 +57,77 @@ public class Jeu implements ActionListener{
             switch (Cata.id) { // affichage graphique de la catastrophe
                 case 0: //secheresse
                     maFenetreJeu.nomCata.setText("Secheresse  (-" + victimes + ")");
-                    maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Secheresse.gif"));
+                    maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Images/Secheresse.gif"));
                 	
                     break;
                 case 1: //predateur
                     maFenetreJeu.nomCata.setText("Predateur  (-" + victimes + ")");
-                    maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Predateur.gif"));
+                    maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Images/Predateur.gif"));
                 
                     break;
                 case 2: //intemperie
                     maFenetreJeu.nomCata.setText("Intemperie  (-" + victimes + ")");
-                    maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Intemperie.gif"));
+                    maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Images/Intemperie.gif"));
         		
                     break;
                 case 3: //penurie
                     maFenetreJeu.nomCata.setText("Penurie  (-" + victimes + ")");
-                    maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Penurie.gif"));         
+                    maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Images/Penurie.gif"));         
 				
                     break;
                 case 4: //maladie
                     maFenetreJeu.nomCata.setText("Maladie  (-" + victimes + ")");
-                    maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Maladie.gif"));
+                    maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Images/Maladie.gif"));
         		
                     break;
                 case 5: //gilets jaunes
                     maFenetreJeu.nomCata.setText("Gilets Jaunes  (-" + victimes + ")");
-                    maFenetreJeu.imageCiel.setIcon(new ImageIcon("./GiletsJaunes.gif"));  
+                    maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Images/GiletsJaunes.gif"));  
 					break;
 			}
                       
 			if (monBob.population > victimes) {
                 monBob.population -= victimes;
-			} else { // arrete le jeu si il n'y a plus d'individus
+			} else { // evite que le nombre de population soit négatif
 				monBob.population = 0;
-                monChrono.stop();
-                finJeu();
+                temps0 = temps;
 			}
-            
-		
-		maFenetreJeu.pop.setText("Population : " +monBob.population);
-        maFenetreJeu.nomCata.setOpaque(true);
-		maFenetreJeu.repaint();}
 
+            maFenetreJeu.pop.setText("Population : " +monBob.population);
+            maFenetreJeu.nomCata.setOpaque(true);
+		}
+        
+        if (temps < 10000) { // affichage du chrono
+            maFenetreJeu.chrono.setText(temps/60000 + ":0" + temps/1000);
+        } else if (temps < 60000) {
+            maFenetreJeu.chrono.setText(temps/60000 + ":" + temps/1000);
+        } else if (temps < 70000) {
+            maFenetreJeu.chrono.setText(temps/60000 + ":0" + (temps-60000)/1000);
+        } else if (temps < 120000) {
+            maFenetreJeu.chrono.setText(temps/60000 + ":" + (temps-60000)/1000);
+        } else {
+            maFenetreJeu.chrono.setText(temps/60000 + ":0" + (temps-120000)/1000);
+        }
 		
-		if (temps == temps0 + 3*delta) {
+		if (temps >= temps0 + 3*delta) { // remet l'image du ciel
 					maFenetreJeu.nomCata.setText("");
                     maFenetreJeu.nomCata.setOpaque(false);
-					maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Ciel-nuageux.jpg"));
-					maFenetreJeu.repaint();
+					maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Images/Ciel-nuageux.jpg"));
         	}
-		
-		System.out.println(monBob.population);
-		victimes = 0;
+        
+        if (monBob.population == 0 && temps > temps0 + 2*delta) { //arrete le jeu quand il n'y a plus de blobs
+            monChrono.stop();
+            finJeu();
+        }
 		
 		if (temps > 240*delta) { //s'arrete au bout de 2 minutes
 			monChrono.stop();
             finJeu();
 		}
-	maFenetreJeu.repaint();
+        
+        System.out.println(monBob.population);
+        victimes = 0;
+        maFenetreJeu.repaint();
 	}
     
     public void finJeu() {
@@ -123,14 +136,13 @@ public class Jeu implements ActionListener{
         maFenetreJeu.nomCata.setOpaque(true);
 		maFenetreJeu.pop.setVisible(false);
 
-		if(monBob.population<0){
-			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Defaite.gif"));
-			maFenetreJeu.repaint();
-		}else {
-			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Victoire.gif"));
-			maFenetreJeu.repaint();
+		if (monBob.population < 100){
+			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Images/Defaite.gif"));
+		} else {
+			maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Images/Victoire.gif"));
 		}
-		
+        
+        maFenetreJeu.repaint();
     }
 }
 
