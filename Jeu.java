@@ -94,10 +94,11 @@ public class Jeu implements ActionListener{
                 finJeu();
 			}
             
-		maFenetreJeu.repaint();
+		
 		maFenetreJeu.pop.setText("Population : " +monBob.population);
         maFenetreJeu.nomCata.setOpaque(true);
-		}
+		maFenetreJeu.repaint();}
+
 		
 		if (temps == temps0 + 3*delta) {
 					maFenetreJeu.nomCata.setText("");
@@ -113,6 +114,7 @@ public class Jeu implements ActionListener{
 			monChrono.stop();
             finJeu();
 		}
+	maFenetreJeu.repaint();
 	}
     
     public void finJeu() {
