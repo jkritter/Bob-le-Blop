@@ -72,7 +72,7 @@ public class Jeu implements ActionListener{
                     break;
                 case 3: //penurie
                     maFenetreJeu.nomCata.setText("Penurie  (-" + victimes + ")");
-                    maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Images/Penurie.gif"));         
+                    maFenetreJeu.imageCiel.setIcon(new ImageIcon("./Images/Penurie.jpg"));         
 				
                     break;
                 case 4: //maladie
